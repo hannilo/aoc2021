@@ -1,0 +1,25 @@
+{
+  "name": "aoc2021",
+  "version": "1.0.0",
+  "description": "Advent of Code 2021",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha --config ./.mocharc.json"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.11.11",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "chai": "^4.3.4",
+    "eslint": "^8.3.0",
+    "mocha": "^9.1.3",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.11.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.2"
+  }
+}
