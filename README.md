@@ -3,3 +3,7 @@
 #### Day 1: Sonar Sweep
 
 Rolling sum comparison.
+
+#### Day 2: Dive!
+
+Coordinate calculation.
