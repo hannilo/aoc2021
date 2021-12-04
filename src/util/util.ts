@@ -10,7 +10,3 @@ export const readInput = (file: string): string => {
 export const readInputLines = (file: string): string[] => {
   return readInput(file).splitLines();
 };
-
-export const verify = (): string => {
-  return "OK";
-};
