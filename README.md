@@ -15,3 +15,11 @@ Most common bits.
 #### Day 4: Giant Squid
 
 Bingo.
+
+#### Day 5: Hydrothermal Venture
+
+Overlapping lines.
+
+#### Day 6: Lanternfish
+
+Population tracking.
