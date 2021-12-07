@@ -23,3 +23,7 @@ Overlapping lines.
 #### Day 6: Lanternfish
 
 Population tracking.
+
+#### Day 7: The Treachery of Whales
+
+Minimum fuel consumption.
