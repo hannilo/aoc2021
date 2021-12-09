@@ -11,6 +11,6 @@ export const example = "be cfbegad cbdgef fgaecd cgeb fdcge agebfd fecdb fabcd e
 
 
 export function parseLine(line: string): [string[], string[]] {
-  const r = line.split(" | ").map(v => v.split(" ").map(d => d.trim()));
+  const r = line.split(" | ").map(v => v.split(" ").map(d => [...d.trim()].sort().join("")));
   return [r[0], r[1]];
 }

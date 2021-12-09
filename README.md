@@ -27,3 +27,7 @@ Population tracking.
 #### Day 7: The Treachery of Whales
 
 Minimum fuel consumption.
+
+#### Day 8: Seven Segment Search
+
+Identify randomized 7-segment display outputs.
