@@ -5,7 +5,7 @@ import {solve} from "./part_one";
 import {readInputLines} from "../../util/util";
 
 describe(`09 - Part I example`, () => {
-  it(`should low points`, async () => {
+  it(`should find low points`, async () => {
     expect(solve(example.splitLines())).to.equal(15);
   });
 });
