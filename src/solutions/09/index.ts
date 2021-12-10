@@ -32,6 +32,32 @@ export class Board {
     return this.rows.length;
   }
 
+  getHeightAt(c: Coord) {
+    if (c.y > this.height - 1 || c.x > this.width - 1) {
+      throw Error("invalid coord");
+    }
+    return this.rows[c.y][c.x];
+  }
+
+  getNeighbors(row: number, col: number): Coord[] {
+    const coords: Coord[] = [];
+    if (row < this.height - 1) {
+      coords.push({y: row + 1, x: col});
+    }
+    if (row > 0) {
+      coords.push({y: row - 1, x: col});
+
+    }
+    if (col < this.width - 1) {
+      coords.push({y: row, x: col + 1});
+
+    }
+    if (col > 0) {
+      coords.push({y: row, x: col - 1});
+    }
+    return coords;
+  }
+
   getNeighborValues(row: number, col: number): number[] {
     const neighborValues = [];
     if (row < this.height - 1) {
