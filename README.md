@@ -31,3 +31,15 @@ Minimum fuel consumption.
 #### Day 8: Seven Segment Search
 
 Identify randomized 7-segment display outputs.
+
+#### Day 9: Smoke Basin
+
+Topography.
+
+#### Day 10: Syntax Scoring
+
+Parse tree using a stack.
+
+#### Day 11: Dumbo Octopus
+
+Game of Life.

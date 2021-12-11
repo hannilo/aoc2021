@@ -34,5 +34,5 @@ export function solve(input: string[]): number {
     return r.valid ? undefined : [...s][r.errIdx];
   }).filter(s => s != undefined);
   console.log(validated);
-  return validated.map(c => score.get(c)!).reduce((p, c) => p + c);
+  return validated.map(c => <number>score.get(c)).reduce((p, c) => p + c);
 }
