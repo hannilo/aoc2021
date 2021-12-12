@@ -42,4 +42,8 @@ Parse tree using a stack.
 
 #### Day 11: Dumbo Octopus
 
-Game of Life.
+Game of Life-ish.
+
+#### Day 12: Passage Pathing
+
+Graph traversal.
