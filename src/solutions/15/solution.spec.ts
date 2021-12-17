@@ -32,7 +32,7 @@ describe(`15 - Part I solution`, () => {
   const target = `${g.height - 1}:${g.width - 1}`;
   const p = g.dijkstra(<Node>g.nodes.get("0:0"), <Node>g.nodes.get(target));
   it(`should find shortest path`, async () => {
-    expect(p.length).to.equal(205);
+    expect(p.length).to.equal(203);
   });
   it(`should get path cost`, async () => {
     expect(pathCost(p)).to.equal(386);

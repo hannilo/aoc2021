@@ -47,3 +47,20 @@ Game of Life-ish.
 #### Day 12: Passage Pathing
 
 Graph traversal.
+
+#### Day 13: Transparent Origami
+
+Combining grids.
+
+#### Day 14: Extended Polymerization
+
+Frequency map.
+
+#### Day 15: Chiton
+
+Dijkstra's algorithm.
+
+#### Day 16: Packet Decoder
+
+Message decoding.
+
