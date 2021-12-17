@@ -32,7 +32,7 @@ export class Packet {
   readonly v: number;
   readonly t: number;
   readonly contents: Packet[] = [];
-  readonly value: number = -1;
+  readonly literal: number = -1;
 
   constructor(s: string) {
     this.arr = [...s];
@@ -42,8 +42,8 @@ export class Packet {
     console.log(this.v, this.slice(0, 3));
 
     if (this.isLit()) {
-      this.value = this.readNumber(6);
-      console.log("lit packet", this.value, "bits", this.arr.length);
+      this.literal = this.readNumber(6);
+      console.log("lit packet", this.literal, "bits", this.arr.length);
     } else {
       if (this.arr[6] == "1") {
         const subPacketCount = parseInt(this.slice(7, 7 + 11), 2);
@@ -106,6 +106,38 @@ export class Packet {
 
   subPacketVersionSum(): number {
     return this.contents.map(p => p.subPacketVersionSum() + p.v).reduce((p, c) => p + c, 0);
+  }
+
+  getPacketValue(): number {
+    switch (this.t) {
+      case 4:
+        return this.literal;
+      case 0:
+        return this.contents.reduce((p, c) => p + c.getPacketValue(), 0);
+      case 1:
+        return this.contents.reduce((p, c) => p * c.getPacketValue(), 1);
+      case 2:
+        return Math.min(...this.contents.map(p => p.getPacketValue()));
+      case 3:
+        return Math.max(...this.contents.map(p => p.getPacketValue()));
+      case 5:
+        if (this.contents.length != 2) {
+          throw Error("invalid greater than packet");
+        }
+        return this.contents[0].getPacketValue() > this.contents[1].getPacketValue() ? 1 : 0;
+      case 6:
+        if (this.contents.length != 2) {
+          throw Error("invalid less than packet");
+        }
+        return this.contents[0].getPacketValue() < this.contents[1].getPacketValue() ? 1 : 0;
+      case 7:
+        if (this.contents.length != 2) {
+          throw Error("invalid equal packet");
+        }
+        return this.contents[0].getPacketValue() == this.contents[1].getPacketValue() ? 1 : 0;
+      default:
+        throw Error("invalid packet type")
+    }
   }
 
   slice(start: number, endExclusive?: number): string {

@@ -13,14 +13,14 @@ describe("16 - parse", () => {
     expect(p1.stringValue()).to.equal("110100101111111000101");
     expect(p1.v).to.equal(6);
     expect(p1.isLit()).to.equal(true);
-    expect(p1.value).to.equal(2021);
+    expect(p1.literal).to.equal(2021);
   });
   it("parse - operator packet", async () => {
     const p1 = new Packet(convertToBinaryString(example2));
     expect(p1.v).to.equal(1);
     expect(p1.isOp()).to.equal(true);
-    expect(p1.contents[0].value).to.equal(10);
-    expect(p1.contents[1].value).to.equal(20);
+    expect(p1.contents[0].literal).to.equal(10);
+    expect(p1.contents[1].literal).to.equal(20);
 
   });
   it("parse - nested operator packet", async () => {
@@ -28,9 +28,9 @@ describe("16 - parse", () => {
     expect(p1.v).to.equal(7);
     expect(p1.isOp()).to.equal(true);
     expect(p1.contents.length).to.equal(3);
-    expect(p1.contents[0].value).to.equal(1);
-    expect(p1.contents[1].value).to.equal(2);
-    expect(p1.contents[2].value).to.equal(3);
+    expect(p1.contents[0].literal).to.equal(1);
+    expect(p1.contents[1].literal).to.equal(2);
+    expect(p1.contents[2].literal).to.equal(3);
   });
   it("count version number", async () => {
     let p = new Packet(convertToBinaryString("8A004A801A8002F478"));
@@ -49,5 +49,39 @@ describe("16 - part I solution", () => {
   it("should solve input", async () => {
     const p = new Packet(convertToBinaryString(readInput("16.txt")));
     expect(p.subPacketVersionSum() + p.v).to.equal(929);
+  });
+});
+
+describe("16 - part II examples", () => {
+  it("example 1", async () => {
+    const p = new Packet(convertToBinaryString("C200B40A82"));
+    expect(p.getPacketValue()).to.equal(3);
+  });
+  it("example 2", async () => {
+    const p = new Packet(convertToBinaryString("04005AC33890"));
+    expect(p.getPacketValue()).to.equal(54);
+  });
+  it("example 3", async () => {
+    const p = new Packet(convertToBinaryString("880086C3E88112"));
+    expect(p.getPacketValue()).to.equal(7);
+  });
+  it("example 4", async () => {
+    const p = new Packet(convertToBinaryString("CE00C43D881120"));
+    expect(p.getPacketValue()).to.equal(9);
+  });
+  it("example 5", async () => {
+    const p = new Packet(convertToBinaryString("D8005AC2A8F0"));
+    expect(p.getPacketValue()).to.equal(1);
+  });
+  it("example 6", async () => {
+    const p = new Packet(convertToBinaryString("9C0141080250320F1802104A08"));
+    expect(p.getPacketValue()).to.equal(1);
+  });
+});
+
+describe("16 - part II solution", () => {
+  it("solution", async () => {
+    const p = new Packet(convertToBinaryString(readInput("16.txt")));
+    expect(p.getPacketValue()).to.equal(911945136934);
   });
 });
