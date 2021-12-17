@@ -18,7 +18,7 @@ export class PolymerizationFrequencyModule {
         this.frequencyMap.set(k, 1);
       }
     }
-    console.log(this.frequencyMap, this.template);
+    console.log("PolymerizationFrequencyModule",this.frequencyMap, this.template);
   }
 
   step() {

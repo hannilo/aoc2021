@@ -4,16 +4,20 @@ import {expect} from "chai";
 import {PolymerizationFrequencyModule} from "./part_two";
 
 describe(`14 - Part II parse`, () => {
-  const chunks = <[string[], string[]]>splitChunks(example);
-  const p = new PolymerizationFrequencyModule(chunks[0][0], chunks[1]);
   it(`should retain frequencies`, async () => {
+    const chunks = <[string[], string[]]>splitChunks(example);
+    const p = new PolymerizationFrequencyModule(chunks[0][0], chunks[1]);
     expect(p.getMapKeys().length).to.equal(3);
   });
   it(`should retain rules`, async () => {
+    const chunks = <[string[], string[]]>splitChunks(example);
+    const p = new PolymerizationFrequencyModule(chunks[0][0], chunks[1]);
     expect(p.getRule("CH")).to.equal("B");
     expect(p.getRule("CN")).to.equal("C");
   });
   it(`should find letter frequencies`, async () => {
+    const chunks = <[string[], string[]]>splitChunks(example);
+    const p = new PolymerizationFrequencyModule(chunks[0][0], chunks[1]);
     const letterFreq = p.getLetterFreq()
     expect(letterFreq.size).to.equal(3);
   });
