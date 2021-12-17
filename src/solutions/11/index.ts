@@ -11,16 +11,9 @@ export const example =
   "5283751526";
 
 
-import {Coord} from "../../math/coordinates";
+import {Coord, coordToKey, keyToCoord} from "../../math/coordinates";
 
-export function coordToKey(c: Coord): string {
-  return `${c.y}:${c.x}`;
-}
 
-export function keyToCoord(s: string): Coord {
-  const yx = s.split(":");
-  return {y: parseInt(yx[0], 10), x: parseInt(yx[1], 10)};
-}
 
 //should create generic class
 export class Grid {
@@ -67,7 +60,7 @@ export class Grid {
       const c = keyToCoord(<string>toFlash.shift());
       flashed.add(coordToKey(c));
       this.getNeighbors(c.y, c.x).forEach(nc => {
-        const ncKey = coordToKey(nc)
+        const ncKey = coordToKey(nc);
         if (!flashed.has(coordToKey(nc)) && !toFlash.includes(ncKey)) {
           this.rows[nc.y][nc.x] += 1;
           if (this.rows[nc.y][nc.x] > 9) {
