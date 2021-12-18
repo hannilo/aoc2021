@@ -113,3 +113,7 @@ export class HeapPriorityQueue<T> implements PriorityQueue<T> {
     }
   }
 }
+
+export function gaussSum(n: number): number {
+  return (n ** 2 + n) / 2;
+}

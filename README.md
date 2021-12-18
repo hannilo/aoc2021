@@ -64,3 +64,6 @@ Dijkstra's algorithm.
 
 Message decoding.
 
+#### Day 17: Trick Shot
+
+Parabolic trajectory.
