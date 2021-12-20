@@ -1,6 +1,6 @@
 import {describe} from "mocha";
 import {expect} from "chai";
-import {buildPair, magnitude} from "./index";
+import {addPairs, buildPair, magnitude, reducePair} from "./index";
 
 describe("18 - part I operations", () => {
   it("calculates single magnitude", async () => {
@@ -31,10 +31,20 @@ describe("18 - part I operations", () => {
     expect(p.children[1].children[0].value).to.equal(88);
     expect(p.children[1].children[1].value).to.equal(55);
   });
-  it("builds a nested pair", async () => {
+  it("builds a highly nested pair", async () => {
     const i = "[[[[1,3],[5,3]],[[1,3],[8,7]]],[[[4,9],[6,9]],[[8,2],[7,3]]]]";
     const p = buildPair(i);
     console.log(p.toString());
     expect(p.toString()).to.equal(i);
+  });
+  it("adds two simple pairs", async () => {
+    const p1 = buildPair("[1,2]")
+    const p2 = buildPair("[[3,4],5]")
+    const r = addPairs(p1, p2)
+    expect(r.toString()).to.equal("[[1,2],[[3,4],5]]");
+  });
+  it("explodes 4x nested pair", async () => {
+    const p1 = buildPair("[[[[[9,8],1],2],3],4]")
+    expect(reducePair(p1).toString()).to.equal("[[[[0,9],2],3],4]");
   });
 });

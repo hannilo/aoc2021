@@ -67,3 +67,16 @@ Message decoding.
 #### Day 17: Trick Shot
 
 Parabolic trajectory.
+
+#### Day 18: Snailfish
+
+TODO: Tree traversal
+
+#### Day 19: Beacon Scanner
+
+TODO: Transformation matrix?
+
+#### Day 20: Trench Map
+
+Infinite grid.
+ 
