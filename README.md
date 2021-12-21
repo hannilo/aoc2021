@@ -80,3 +80,6 @@ TODO: Transformation matrix?
 
 Infinite grid.
  
+#### Day 21: Dirac Dice
+
+Trifurcating universes.
